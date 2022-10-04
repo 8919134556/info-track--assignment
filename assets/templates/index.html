@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+{% load static %}
+<title>Info-Track</title>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--<title> Responsive Sidebar Menu  | CodingLab </title>-->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link rel="stylesheet" href="{% static './css/dami.css' %}">
+  <!-- Boxicons CDN Link -->
+  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+  <link id="pagestyle" href="{% static './css/material-dashboard.css' %}" rel="stylesheet" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <!--table--->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/dataTables.bootstrap4.min.css">
+  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+  <script src="https://cdn.datatables.net/1.10.22/js/dataTables.bootstrap4.min.js"></script>
+  <script src="{% static './js/sweetalert.min.js' %}"></script>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+      border-bottom: 1px solid rgb(169, 151, 151);
+    }
+    tr:hover {background-color: rgb(109, 73, 229); border-radius: 50px; color: white; }
+    </style>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+  <div class="sidebar" style="background-color: rgb(253, 252, 252); box-shadow: 5px;">
+    <div class="logo-details" style="margin-left: 10px;">
+      <div class="logo_name">
+        <span style="font-size: 30px; color: rgb(220, 54, 54);">Info</span><span
+          style="font-size: 30px; color: rgb(0, 183, 255);">Track</span>
+      </div>
+    </div>
+    <div style="text-align: right;"><i class="fas fa-angle-right" style='font-size:30px;color:rgb(3, 3, 3)'
+        id="btn"></i>
+    </div>
+    <ul class="nav-list">
+      <li>
+        <a href="#">
+          <i class="material-icons opacity-10">dashboard</i>
+          <span class="links_name">Dashboard</span>
+        </a>
+        <span class="tooltip">Dashboard</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-map'></i>
+          <span class="links_name">Track on map</span>
+        </a>
+        <span class="tooltip">Track on map</span>
+      </li>
+      <li>
+        <a href="#">
+          <i class='bx bx-file'></i>
+          <span class="links_name">Report</span>
+        </a>
+        <span class="tooltip">Report</span>
+      </li>
+    </ul>
+  </div>
+
+  <section class="home-section">
+    <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+      <!-- Navbar -->
+      <nav class="navbar navbar-main navbar-expand-lg " style="background-color: rgb(255, 255, 255); " id="navbarBlur"
+        navbar-scroll="true">
+        <div class="container-fluid py-1 px-3">
+          <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+            <ul class="navbar-nav justify-content-end" style="margin-left: 90%; list-style: none">
+              <li class="nav-item d-flex ">
+                <div class="icon-button">
+                  <span class="material-icons">notifications</span>
+                  <span class="icon-button__badge">2</span>
+                </div>
+              </li>
+              <li class="nav-item dropdown pe-2 px-3 d-flex" style="margin-left: 10px;">
+                <img src="{% static './img/team-4.jpg' %}" alt="no image"
+                  style="width: 50px; height: 50px; border-radius: 50px; margin-top: 10px;">
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="col-sm-12 mb-4">
+        <h2 class="ms-2">Dashboard</h2>
+      </div>
+      <!-- End Navbar -->
+      <div class="container-fluid py-4">
+        <div class="row">
+          <div class="col mb-xl-0 mb-4 ">
+            <div class="card" style="width: 200px;">
+              <div class="card-header p-3 pt-2">
+                <div
+                  class="icon icon-lg icon-shape bg-gradient-success shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                  <i class="material-icons opacity-10" style="font-size: 24px;">compare_arrows</i>
+                </div>
+                <div class="text-end pt-1">
+                  <p class="text-sm mb-0 text-capitalize">Moving</p>
+                  <h4 class="mb-0">264</h4>
+                  <p>View on map</p>
+                </div>
+              </div>
+              <div class="card-footer p-3">
+                <p class="mb-0"><span class="text-success text-sm font-weight-bolder">70% </span>view betails</p>
+              </div>
+            </div>
+          </div>
+          <div class="col  mb-xl-0 mb-4">
+            <div class="card ms-2" style="width: 200px;">
+              <div class="card-header p-3 pt-2">
+                <div
+                  class="icon icon-lg icon-shape bg-gradient-danger shadow-dark text-center border-radius-xl mt-n4 position-absolute">
+                  <i class="material-icons opacity-10" style="font-size: 24px;">cancel</i>
+                </div>
+                <div class="text-end pt-1">
+                  <p class="text-sm mb-0 text-capitalize">Stoped</p>
+                  <h4 class="mb-0">264</h4>
+                  <p>View on map</p>
+                </div>
+              </div>
+              <hr class="dark horizontal my-0">
+              <div class="card-footer p-3">
+                <p class="mb-0"><span class="text-success text-sm font-weight-bolder">70% </span>view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="col  mb-xl-0 mb-4">
+            <div class="card ms-2" style="width: 200px;">
+              <div class="card-header p-3 pt-2">
+                <div
+                  class="icon icon-lg icon-shape bg-gradient-warning shadow-primary text-center border-radius-xl mt-n4 position-absolute">
+                  <i class="material-icons opacity-10" style="font-size: 24px;">key</i>
+                </div>
+                <div class="text-end pt-1">
+                  <p class="text-sm mb-0 text-capitalize">Idel</p>
+                  <h4 class="mb-0">264</h4>
+                  <p>View on map</p>
+                </div>
+              </div>
+              <hr class="dark horizontal my-0">
+              <div class="card-footer p-3">
+                <p class="mb-0"><span class="text-success text-sm font-weight-bolder">70% </span>view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="col  mb-xl-0 mb-4">
+            <div class="card ms-2" style="width: 200px;">
+              <div class="card-header p-3 pt-2">
+                <div
+                  class="icon icon-lg icon-shape bg-gradient-secondary shadow-success text-center border-radius-xl mt-n4 position-absolute">
+                  <i class="material-icons opacity-10" style="font-size: 24px;">wifi_off</i>
+                </div>
+                <div class="text-end pt-1">
+                  <p class="text-sm mb-0 text-capitalize">Inactive</p>
+                  <h4 class="mb-0">264</h4>
+                  <p>View on map</p>
+                </div>
+              </div>
+              <hr class="dark horizontal my-0">
+              <div class="card-footer p-3">
+                <p class="mb-0"><span class="text-danger text-sm font-weight-bolder">70%</span> view details</p>
+              </div>
+            </div>
+          </div>
+          <div class="col  mb-xl-0 mb-4">
+            <div class="card ms-2" style="width: 200px;">
+              <div class="card-header p-3 pt-2">
+                <div class="icon icon-lg icon-shape shadow-info text-center border-radius-xl mt-n4 position-absolute"
+                  style="background-color: rgb(252, 4, 111);">
+                  <i class="material-icons opacity-10" style="font-size: 24px;">logout</i>
+                </div>
+                <div class="text-end pt-1">
+                  <p class="text-sm mb-0 text-capitalize">Out of services</p>
+                  <h4 class="mb-0">264</h4>
+                  <p>View on map</p>
+                </div>
+              </div>
+              <hr class="dark horizontal my-0">
+              <div class="card-footer p-3">
+                <p class="mb-0"><span class="text-success text-sm font-weight-bolder">70% </span>view details</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 mb-4 mt-4">
+            <h2>Track on map</h2>
+          </div>
+          <div class="col-sm-12">
+            <div id="googleMap" style="width:95%; height:350px; margin-left: 30px; margin-right: 30px; border-radius: 30px;">
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 mb-4 mt-4">
+            <h2>Selected Records</h2>
+          </div>
+          <div class="col-sm-6">
+            <table class="list" id="employeeList">
+              <thead>
+                  <tr>
+                      <th>No</th>
+                      <th>Header 1</th>
+                      <th>Header 2</th>
+                      <th>Header 3</th>
+                      <th>Header 4</th>
+                      <th>Header 5</th>
+                      <th>Header 6</th>
+                  </tr>
+              </thead>
+              <tbody class="text-dark">
+                    {% if view1 == 0 %}
+                    <tr>
+                    <td>----</td>
+                    <td>----</td>
+                    <td>----</td>
+                    <td>Nodata</td>
+                    <td>----</td>
+                    <td>----</td>
+                    <td>----</td></tr>
+                    {% else %}
+                    {% for i in view %}
+                    <tr>
+                    <td>{{i.no}}</td>
+                    <td >{{i.header1}}</td>
+                    <td>{{i.header2}}</td>
+                    <td>{{i.header3}}</td>
+                    <td>{{i.header4}}</td>
+                    <td>{{i.header5}}</td>
+                    <td>{{i.header6}}</td>
+                  </tr>
+                    {% endfor %}
+                    {% endif %}    
+              </tbody>
+          </table>
+          </div>
+          <div class="col-sm-6">
+            <div id="columnchart_material" style="width: 80%;"></div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 mb-4 mt-4">
+            <h2>Records</h2>
+          </div>
+          <div class="col-sm-12 mb-4">
+            <table class="table table-bordered text-dark"  id="sortTable" >
+              <thead>
+                <tr>
+                  <th>
+                    S.No
+                  </th>
+                  <th>
+                    Header 1
+                  </th>
+                  <th>
+                    Header 2
+                  </th>
+                  <th>
+                    Header 3
+                  </th>
+                  <th>
+                    Header 4
+                  </th>
+                  <th>
+                    Header 5
+                  </th>
+                  <th>
+                    Header 6
+                  </th>
+                  <th>
+                    Select
+                  </th>
+                  <th>
+                    Delete
+                  </th>
+                </tr>
+              </thead>
+              <tbody> 
+                <tr>
+                  <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                  <td>
+                    <input type="text" placeholder="Name" hidden name="no" value="1">
+                    1
+                  </td>
+                  <td>
+                    <input type="text" placeholder="Name" hidden name="header1" value="KA-02-B-5647">
+                    KA-02-B-5647
+                  </td>
+                  <td>
+                    <input type="text" placeholder="Name" hidden name="header2" value="Mani">
+                    Mani
+                  </td>
+                  <td >
+                    <input type="text" placeholder="Name" hidden name="header3" value="31-08-22">
+                    31-08-22
+                  </td>
+                  <td>
+                    <input type="text" placeholder="Name" hidden name="header4" value="lalbagh botanical garden">
+                    lalbagh botanical garden
+                  </td>
+                  <td>
+                    <input type="text" placeholder="Name" hidden name="header5" value="12.9507, 77.5848">
+                    12.9507, 77.5848
+                  </td>
+                  <td>
+                    <input type="text" placeholder="Name" hidden name="header6" value="OFF">
+                    OFF
+                  </td>
+                  <td class="text-center">
+                    <button class="text-white" type="submit" style="background-color: rgb(97, 97, 186); width: 70px; border-radius: 5px;">Select</button>
+                  </td>
+                  <td class="text-center">
+                    <button class="text-white" type="button" style="background-color: rgb(230, 15, 15); width: 70px; border-radius: 5px;"><a class="text-white" href="delete/1">Delete</a></button>
+                  </td>
+                </form>
+                </tr>
+                <tr>
+                  <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <td>
+                      <input type="text" placeholder="Name" hidden name="no" value="2">
+                      2
+                    </td>
+                  <td>
+                    <input type="text" placeholder="Name" hidden name="header1" value="KA-01-A-1234">
+                    KA-01-A-1234
+                  </td>
+                  <td>
+                    <input type="text" placeholder="Name" hidden name="header2" value="Muthu">
+                    Muthu
+                  </td>
+                  <td>
+                    <input type="text" placeholder="Name" hidden name="header3" value="31-08-22">
+                    31-08-22
+                  </td>
+                  <td >
+                    <input type="text" placeholder="Name" hidden name="header4" value="hotel leela palace bangalore">
+                    hotel leela palace bangalore
+                  </td>
+                  <td>
+                    <input type="text" placeholder="Name" hidden name="header5" value="12.9602, 77.6484">
+                    12.9602, 77.6484
+                  </td>
+                  <td>
+                    <input type="text" placeholder="Name" hidden name="header6" value="OFF">
+                    OFF
+                  </td>
+                  <td class="text-center">
+                    <button class="text-white" type="submit" style="background-color: rgb(97, 97, 186); width: 70px; border-radius: 5px;">Select</button>
+                  </td>
+                  <td class="text-center">
+                    <button class="text-white" type="button" style="background-color: rgb(230, 15, 15); width: 70px; border-radius: 5px;"><a class="text-white" href="delete/2">Delete</a></button>
+                  </td>
+                </form>
+                </tr>
+                <tr>
+                  <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                  <td>
+                    <input type="text" placeholder="Name" hidden name="no" value="3">
+                    3
+                  </td>
+                  <td>
+                    <input type="text" placeholder="Name" hidden name="header1" value="KA-01-A-1234">
+                    KA-01-A-1234
+                  </td>
+                  <td>
+                    <input type="text" placeholder="Name" hidden name="header2" value="Anbu">
+                    anbu
+                  </td>
+                  <td >
+                    <input type="text" placeholder="Name" hidden name="header3" value="31-08-22 ">
+                    31-08-22
+                  </td>
+                  <td>
+                    <input type="text" placeholder="Name" hidden name="header4" value="freedom park">
+                    freedom park
+                  </td>
+                  <td>
+                    <input type="text" placeholder="Name" hidden name="header5" value=" 12.9779, 77.5822">
+                    12.9779, 77.5822
+                  </td>
+                  <td>
+                    <input type="text" placeholder="Name" hidden name="header6" value="On">
+                    On
+                  </td>
+                  <td class="text-center">
+                    <button class="text-white" type="submit" style="background-color: rgb(97, 97, 186); width: 70px; border-radius: 5px;">Select</button>
+                  </td>
+                  <td class="text-center">
+                    <button class="text-white" type="button" style="background-color: rgb(230, 15, 15); width: 70px; border-radius: 5px;"><a class="text-white" href="delete/3">Delete</a></button>
+                  </td>
+                </form>
+                </tr>  
+              </tbody>
+            </table>
+            <script>
+              $('#sortTable').DataTable();
+            </script>
+          </div>
+        </div>
+      </div>
+    </main>
+  </section>
+ 
+
+
+  <script>
+    let sidebar = document.querySelector(".sidebar");
+    let closeBtn = document.querySelector("#btn");
+    let searchBtn = document.querySelector(".bx-search");
+
+    closeBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
+      menuBtnChange();//calling the function(optional)
+    });
+
+    searchBtn.addEventListener("click", () => { // Sidebar open when you click on the search iocn
+      sidebar.classList.toggle("open");
+      menuBtnChange(); //calling the function(optional)
+    });
+
+    // following are the code to change sidebar button(optional)
+    function menuBtnChange() {
+      if (sidebar.classList.contains("open")) {
+        closeBtn.classList.replace("bx-menu", "bx-menu-alt-right");//replacing the iocns class
+      } else {
+        closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");//replacing the iocns class
+      }
+    }
+  </script>
+  <script src="{% static './js/material-dashboard.min.js' %}"></script>
+  
+  <script type="module" src="{% static './js/map1.js' %}"></script>
+<!--     
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHHcY1g_T7Z_y4__oPcEhtwb65UtLTM70&callback=myMap"></script>
+    -->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC82G6Ra_XG35urBHq54yISIViBv2F5s7g&callback=initMap&v=weekly"
+      defer
+    ></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    google.charts.load('current', { 'packages': ['bar'] });
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Year', 'LOREM', 'IPSUM'],
+        ['APRIL', 20, 40],
+        ['MAY', 38, 65],
+        ['JUNE', 55, 78],
+        ['JULY', 55, 75]
+      ]);
+
+      var options = {
+
+      };
+
+      var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+      chart.draw(data, google.charts.Bar.convertOptions(options));
+    }
+  </script>
+  <script>
+    {% for msg in messages %}    
+       swal( "Server Response", "{{msg}}");
+     {% endfor %} 
+   </script>
+  <script>
+    function initMap() {
+        const uluru = { lat: 12.9716, lng: 77.5946 };
+        const map = new google.maps.Map(document.getElementById("googleMap"), {
+          zoom: 13,
+          center: uluru,
+        });
+        var points = "{{view2}}".split('|')
+        for (i = 0; i < points.length; i++)
+        {
+            // split the string at the comma
+            var coords = points[i].split(',');
+            // change the two strings to floating point numbers, use them to create the LatLng
+            const demo = new google.maps.LatLng(parseFloat(coords[0]),parseFloat(coords[1]));
+            const marker = new google.maps.Marker({
+            position: demo,
+            map: map,
+            });
+        }
+      }
+      window.initMap = initMap;
+  </script>
+
+
+</body>
+
+</html>x
